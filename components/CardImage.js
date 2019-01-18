@@ -11,7 +11,7 @@ export default class CardImage extends Component {
           <Card>
             <CardItem>
               <Left>
-                <Thumbnail source={{uri: 'https://cdn2.iconfinder.com/data/icons/social-productivity-line-art-2/128/photo-512.png'}} />
+                <Thumbnail source={{uri: 'https://cdn2.iconfinder.com/data/icons/rafif-rounded-flat-vol-2/512/picture-512.png'}} />
                 <Body>
                   <Text>Active Wallpaper</Text>
                 </Body>
@@ -23,8 +23,8 @@ export default class CardImage extends Component {
             <CardItem>
               <Left>
                 <Button transparent>
-                  <Icon active name="views" />
-                  <Text>{this.props.image.view} Views</Text>
+                  <Icon active name="md-watch" />
+                  <Text>{this.props.image.views} Views</Text>
                 </Button>
               </Left>
               <Right>

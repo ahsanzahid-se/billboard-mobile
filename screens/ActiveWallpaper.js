@@ -7,6 +7,8 @@ import {db, auth} from '../agent';
 import _ from 'lodash';
 import moment from 'moment-mini';
 import WallpaperManager from 'react-native-wallpaper-manager';
+import CardImage from '../components/CardImage';
+import Toast from 'react-native-easy-toast';
 
 const styles = {
     container : {
@@ -86,7 +88,7 @@ class ActiveWallpaper extends React.Component {
                         randomImage = idArr[Math.floor(Math.random() * data.length)];
                     }
                 }
-                this.changeWallpaper(data[randomImage]);
+                // this.changeWallpaper(data[randomImage]);
                 this.setState({
                     wallpaper: data[randomImage],
                     loading: false
@@ -102,7 +104,7 @@ class ActiveWallpaper extends React.Component {
                         }
                     })
                     console.log('image', image);
-                    this.changeWallpaper(image);
+                    // this.changeWallpaper(image);
                     this.setState({
                         wallpaper: image,
                         loading: false
@@ -165,11 +167,11 @@ class ActiveWallpaper extends React.Component {
                         </Button>
                     </Left>
                     <Body>
-                        <Title>Header</Title>
+                        <Title>Active Wallpaper</Title>
                     </Body>
                 </Header>
                 <Content contentContainerStyle={styles.container}>
-                    {this.renderWallpaper.bind(this)}
+                    <CardImage image={this.state.wallpaper} />
                 </Content>
                 <Toast ref="toast"/>
             </Container>

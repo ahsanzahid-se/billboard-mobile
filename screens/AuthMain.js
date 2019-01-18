@@ -13,10 +13,14 @@ export default class AuthMain extends React.Component {
     })
   }
 
+  navigateApp = () => {
+    this.props.navigation.navigate('App');
+  }
+
   render() {
       if(this.state.status == 'login') {
           return (
-              <Login changeStatus={this.changeStatus} />
+              <Login changeStatus={this.changeStatus} navigateApp={this.navigateApp}/>
           )
       } else if(this.state.status == 'register') {
           return (

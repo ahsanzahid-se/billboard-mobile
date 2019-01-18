@@ -60,7 +60,7 @@ class ProfileSettings extends React.Component {
                         </Button>
                     </Left>
                     <Body>
-                        <Title>Header</Title>
+                        <Title>Profile Settings</Title>
                     </Body>
                 </Header>
                 <Content contentContainerStyle={styles.buttonContainer}>

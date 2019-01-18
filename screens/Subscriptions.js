@@ -173,7 +173,7 @@ class Subscriptions extends React.Component {
                         </Button>
                     </Left>
                     <Body>
-                        <Title>Header</Title>
+                        <Title>Subscriptions</Title>
                     </Body>
                 </Header>
                 <Content contentContainerStyle={styles.container}>

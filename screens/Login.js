@@ -31,10 +31,10 @@ export default class Login extends React.Component {
             })
             console.log('user', auth.currentUser.email);
             AsyncStorage.setItem('curr_email', user.email);
-            this.props.navigation.navigate('App');
+            this.props.navigateApp();
         })
       .catch((err) => {
-        // Login was not successful
+        console.log("err", err.message, err.stack);
         this.setState({
             authenticating: false,
             user: null,
