@@ -1,10 +1,12 @@
 import React from 'react';
 import Login from './Login';
 import Register from './Register';
+import Verification from './Verification';
 
 export default class AuthMain extends React.Component {
   state = {
-    status: 'login'
+    status: 'login',
+    email: ''
   }
 
   changeStatus = (newStatus) => {
@@ -17,6 +19,12 @@ export default class AuthMain extends React.Component {
     this.props.navigation.navigate('App');
   }
 
+  changeEmail = (email) => {
+    this.setState({
+      email
+    })
+  }
+
   render() {
       if(this.state.status == 'login') {
           return (
@@ -24,8 +32,12 @@ export default class AuthMain extends React.Component {
           )
       } else if(this.state.status == 'register') {
           return (
-            <Register changeStatus={this.changeStatus} />
+            <Register changeEmail={this.changeEmail.bind(this)} changeStatus={this.changeStatus} />
           )
+      } else if(this.state.status == 'verification') {
+        return (
+          <Verification changeStatus={this.changeStatus} email={this.state.email} />
+        )
       }
   }
 }

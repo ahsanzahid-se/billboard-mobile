@@ -46,7 +46,7 @@ export default class Register extends React.Component {
             })
         }).then(res => {
             console.log("status");
-            this.props.changeStatus('login');
+            this.props.changeStatus('verification');
         }).catch(e => {
             console.log(e.message);
             this.setState({
@@ -80,6 +80,13 @@ export default class Register extends React.Component {
     this.setState({ dob: newDate });
   }
 
+  changeEmail = (email) => {
+    this.setState({
+      email
+    })
+    this.props.changeEmail(email);
+  }
+
   renderCurrentState() {
     if (this.state.authenticating) {
       return (
@@ -109,7 +116,7 @@ export default class Register extends React.Component {
         <Input
           placeholder='Enter your email...'
           label='Email'
-          onChangeText={email => this.setState({ email })}
+          onChangeText={email => this.changeEmail(email)}
           value={this.state.email}
         />
         <Input
@@ -158,7 +165,7 @@ export default class Register extends React.Component {
             />
         </Item>
         
-        <Button onPress={() => this.register.bind(this)}>Register</Button>
+        <Button onPress={this.register.bind(this)}>Register</Button>
         <Text style={styles.blueText} onPress={() => this.props.changeStatus('login')}>Already a member? Sign in</Text>
         <Text>{this.state.error}</Text>
       </View>
